@@ -1,0 +1,365 @@
+/* ============================================================
+   Tamil Nilam Citizen Portal - Global Styles
+   ============================================================ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --primary: #2e7d6b;
+  --primary-dark: #1f5c4f;
+  --primary-light: #e8f5f2;
+  --navbar-bg: #3d7a6e;
+  --accent: #f5a623;
+  --danger: #d32f2f;
+  --success: #2e7d32;
+  --warning: #f57c00;
+  --text-primary: #1a1a2e;
+  --text-secondary: #555;
+  --border: #e0ddd0;
+  --bg: #f5f5f0;
+  --white: #ffffff;
+  --btn-beige: #c8c4a0;
+  --btn-beige-dark: #b0ac88;
+  --table-header-text: #4a90d9;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.12);
+  --radius: 8px;
+  --radius-lg: 12px;
+}
+
+html,
+body {
+  height: 100%;
+  font-family: "Inter", "Segoe UI", sans-serif;
+  font-size: 15px;
+  color: var(--text-primary);
+  background: var(--bg);
+  line-height: 1.6;
+}
+
+/* ---- Utility ---- */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  padding: 2rem;
+  border: 1px solid var(--border);
+}
+
+/* ---- Buttons ---- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1.5rem;
+  border: none;
+  border-radius: var(--radius);
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background 0.2s,
+    transform 0.1s,
+    box-shadow 0.2s;
+  text-decoration: none;
+}
+.btn:active {
+  transform: scale(0.98);
+}
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: var(--white);
+}
+.btn-primary:hover:not(:disabled) {
+  background: var(--primary-dark);
+  box-shadow: 0 4px 12px rgba(46, 125, 107, 0.3);
+}
+
+.btn-beige {
+  background: var(--btn-beige);
+  color: #333;
+  border-radius: 50px;
+}
+.btn-beige:hover:not(:disabled) {
+  background: var(--btn-beige-dark);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--primary);
+  border: 2px solid var(--primary);
+}
+.btn-outline:hover:not(:disabled) {
+  background: var(--primary-light);
+}
+
+.btn-full {
+  width: 100%;
+}
+.btn-sm {
+  padding: 0.4rem 1rem;
+  font-size: 0.85rem;
+}
+
+/* ---- Form controls ---- */
+.form-group {
+  margin-bottom: 1.25rem;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 0.4rem;
+  color: var(--text-primary);
+  font-size: 0.9rem;
+}
+
+.form-group label .required {
+  color: var(--danger);
+  margin-left: 2px;
+}
+
+.form-control {
+  width: 100%;
+  padding: 0.65rem 0.9rem;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  font-size: 0.95rem;
+  font-family: inherit;
+  color: var(--text-primary);
+  background: var(--white);
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s;
+  outline: none;
+}
+.form-control:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(46, 125, 107, 0.12);
+}
+.form-control.ng-invalid.ng-touched {
+  border-color: var(--danger);
+}
+.form-control:disabled {
+  background: #f5f5f5;
+  cursor: not-allowed;
+}
+
+/* Underline style inputs */
+.form-control-underline {
+  width: 100%;
+  padding: 0.5rem 0;
+  border: none;
+  border-bottom: 1.5px solid #aaa;
+  border-radius: 0;
+  font-size: 0.95rem;
+  font-family: inherit;
+  color: var(--text-primary);
+  background: transparent;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.form-control-underline:focus {
+  border-bottom-color: var(--primary);
+}
+
+.error-msg {
+  color: var(--danger);
+  font-size: 0.82rem;
+  margin-top: 0.3rem;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+/* ---- Alerts ---- */
+.alert {
+  padding: 0.85rem 1.1rem;
+  border-radius: var(--radius);
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+}
+.alert-success {
+  background: #e8f5e9;
+  color: #1b5e20;
+  border-left: 4px solid var(--success);
+}
+.alert-error {
+  background: #ffebee;
+  color: #b71c1c;
+  border-left: 4px solid var(--danger);
+}
+.alert-info {
+  background: #e3f2fd;
+  color: #0d47a1;
+  border-left: 4px solid #1976d2;
+}
+
+/* ---- Status badges ---- */
+.badge {
+  display: inline-block;
+  padding: 0.25rem 0.7rem;
+  border-radius: 20px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.badge-submitted {
+  background: #e3f2fd;
+  color: #1565c0;
+}
+.badge-under_review {
+  background: #fff3e0;
+  color: #e65100;
+}
+.badge-approved {
+  background: #e8f5e9;
+  color: #1b5e20;
+}
+.badge-rejected {
+  background: #ffebee;
+  color: #b71c1c;
+}
+
+/* ---- OTP input ---- */
+.otp-input-group {
+  display: flex;
+  gap: 0.5rem;
+}
+.otp-input-group input {
+  width: 48px;
+  height: 52px;
+  text-align: center;
+  font-size: 1.3rem;
+  font-weight: 700;
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  outline: none;
+  transition: border-color 0.2s;
+}
+.otp-input-group input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(46, 125, 107, 0.12);
+}
+
+/* ---- Spinner ---- */
+.spinner {
+  width: 20px;
+  height: 20px;
+  border: 2.5px solid rgba(255, 255, 255, 0.4);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  display: inline-block;
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ---- Table ---- */
+.table-wrapper {
+  overflow-x: auto;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+th {
+  background: var(--primary);
+  color: var(--white);
+  padding: 0.75rem 1rem;
+  text-align: left;
+  font-weight: 600;
+}
+td {
+  padding: 0.7rem 1rem;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-secondary);
+}
+tr:nth-child(even) td {
+  background: #fafaf7;
+}
+tr:hover td {
+  background: var(--primary-light);
+}
+
+/* ---- Page heading ---- */
+.page-title {
+  text-align: center;
+  color: var(--primary);
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  margin-bottom: 1.5rem;
+}
+
+/* ---- Footer contact bar ---- */
+.contact-footer {
+  background: var(--primary);
+  color: #fff;
+  text-align: center;
+  padding: 0.75rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  margin-top: 2rem;
+}
+
+/* ---- Print styles ---- */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  .print-only {
+    display: block !important;
+  }
+  body {
+    background: white;
+  }
+  .navbar,
+  .contact-footer {
+    display: none !important;
+  }
+}
+
+.print-only {
+  display: none;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 600px) {
+  .card {
+    padding: 1.25rem;
+  }
+  .otp-input-group input {
+    width: 40px;
+    height: 44px;
+    font-size: 1.1rem;
+  }
+}
