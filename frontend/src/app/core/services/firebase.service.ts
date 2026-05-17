@@ -8,16 +8,7 @@ import {
   ConfirmationResult,
   UserCredential,
 } from "firebase/auth";
-
-const firebaseConfig = {
-  apiKey: "AIzaSyDdezim5HeFd0sVegZZYA1gIAcCuok4sGg",
-  authDomain: "yash1290.firebaseapp.com",
-  projectId: "yash1290",
-  storageBucket: "yash1290.firebasestorage.app",
-  messagingSenderId: "677196299502",
-  appId: "1:677196299502:web:372f26ed1755bc19e0c7ff",
-  measurementId: "G-PETEQNJ1X3",
-};
+import { environment } from "../../../environments/environment";
 
 @Injectable({ providedIn: "root" })
 export class FirebaseService {
@@ -27,7 +18,7 @@ export class FirebaseService {
   private confirmationResult?: ConfirmationResult;
 
   constructor(private ngZone: NgZone) {
-    this.app = initializeApp(firebaseConfig);
+    this.app = initializeApp(environment.firebaseConfig);
     this.auth = getAuth(this.app);
   }
 
